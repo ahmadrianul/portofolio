@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad Rianul Qauliah - Academic Portofolio</title>
+    <!-- Judul yang muncul di Tab Browser -->
+    <title>Ahmad Rianul Qauliah - Portofolio Akademik</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
+            
+            /* ATUR LEBAR HALAMAN DI SINI */
+            /* Semakin besar angkanya (misal 1200px), semakin lebar area teksnya */
+            max-width: 1100px; 
+            
             margin: 0 auto;
             padding: 40px 20px;
             
@@ -18,7 +23,7 @@
             background-size: cover;
         }
         header {
-            text-align: left;
+            text-align: center;
             padding-bottom: 30px;
             border-bottom: 2px solid #eaeaea;
         }
@@ -38,11 +43,43 @@
         }
         .section {
             margin-top: 20px;
-            /* Tambahan agar teks lebih mudah dibaca jika background sedikit gelap */
-            background-color: rgba(255, 255, 255, 0.6); 
-            padding: 20px;
-            border-radius: 8px;
+            /* Latar belakang putih transparan sudah dihapus */
         }
+        
+        /* CSS UNTUK TATA LETAK PROFIL & FOTO */
+        .profile-layout {
+            display: flex;
+            align-items: center; /* Membuat teks dan foto sejajar di tengah */
+            gap: 40px; /* Jarak antara teks dan foto */
+        }
+        .profile-text {
+            flex: 1; /* Teks akan mengambil sisa ruang yang ada */
+        }
+        .profile-image-container {
+            flex-shrink: 0; /* Mencegah foto tertekan oleh teks */
+            text-align: center;
+        }
+        .profile-photo {
+            /* ATUR UKURAN FOTO DI SINI */
+            /* Ubah angka 250px ini untuk membesarkan atau mengecilkan foto */
+            width: 250px; 
+            
+            height: auto;
+            border-radius: 10px; /* Atur lengkungan sudut foto. Ubah ke 50% jika ingin foto bulat */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Memberi sedikit bayangan agar elegan */
+        }
+
+        /* Pengaturan agar rapi saat dibuka di HP (Layar Kecil) */
+        @media (max-width: 768px) {
+            .profile-layout {
+                flex-direction: column-reverse; /* Foto akan pindah ke atas teks di HP */
+                text-align: center;
+            }
+            .profile-text p {
+                text-align: left;
+            }
+        }
+
         .skills-container {
             display: flex;
             gap: 10px;
@@ -99,9 +136,17 @@
         <p>Aspiring Geoscientist | Geophysical Surveyor | Subsurface Modelling & Disaster Mitigation</p>
     </header>
 
-    <div class="section">
-        <h2>Profile Summary</h2>
-        <p>A Geophysics fresh graduate with a high dedication to subsurface exploration and mitigation risk analysis. Possesses technical expertise in operating several geophysical instruments such as Microtremor, Ground Penetrating Radar (GPR), and Seismic, and is experienced in performing subsurface data interpretation for various campus projects. In addition to geophysical instrument expertise, possesses extensive field experience as a mapping method field assistant, responsible for spatial data acquisition from Total Station and Drone operation for area mapping. Other experiences are further strengthened through involvement at BMKG, focusing on seismic data interpretation, earthquake waveform analysis, and data processing to understand tectonic characteristics and disaster mitigation. Currently actively seeking professional opportunities in the energy and disaster mitigation industries that challenge skills for broader experience.</p>
+    <div class="section profile-layout">
+        <div class="profile-text">
+            <h2>Profile Summary</h2>
+            <p>A Geophysics fresh graduate with a high dedication to subsurface exploration and mitigation risk analysis. Possesses technical expertise in operating several geophysical instruments such as Microtremor, Ground Penetrating Radar (GPR), and Seismic, and is experienced in performing subsurface data interpretation for various campus projects. In addition to geophysical instrument expertise, possesses extensive field experience as a mapping method field assistant, responsible for spatial data acquisition from Total Station and Drone operation for area mapping. Other experiences are further strengthened through involvement at BMKG, focusing on seismic data interpretation, earthquake waveform analysis, and data processing to understand tectonic characteristics and disaster mitigation. Currently actively seeking professional opportunities in the energy and disaster mitigation industries that challenge skills for broader experience.</p>
+        </div>
+        
+        <!-- BAGIAN FOTO PROFIL -->
+        <div class="profile-image-container">
+            <!-- PENTING: Ganti 'foto-saya.jpg' dengan nama file foto Anda yang sebenarnya di GitHub -->
+            <img src="photo-saya.png" alt="Foto Ahmad Rianul Qauliah" class="profile-photo">
+        </div>
     </div>
 
     <div class="section">
@@ -122,7 +167,6 @@
         <p>Gambar berikut menampilkan contoh visual dari analisis data seismik menggunakan metode SPAC yang telah saya lakukan:</p>
         
         <div class="project-img-container">
-            <!-- PENTING: Pastikan file MonteCarlo.png sudah diunggah -->
             <img src="MonteCarlo.png" alt="Visualisasi Grafik Metode SPAC" class="project-img">
             <p class="img-caption">Gambar 1: Visualisasi data pengolahan metode SPAC.</p>
         </div>
