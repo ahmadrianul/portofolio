@@ -43,7 +43,6 @@
         }
         .section {
             margin-top: 20px;
-            /* Latar belakang putih transparan sudah dihapus */
         }
         
         /* CSS UNTUK TATA LETAK PROFIL & FOTO */
@@ -61,12 +60,10 @@
         }
         .profile-photo {
             /* ATUR UKURAN FOTO DI SINI */
-            /* Ubah angka 250px ini untuk membesarkan atau mengecilkan foto */
             width: 250px; 
-            
             height: auto;
-            border-radius: 10px; /* Atur lengkungan sudut foto. Ubah ke 50% jika ingin foto bulat */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Memberi sedikit bayangan agar elegan */
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
         }
 
         /* Pengaturan agar rapi saat dibuka di HP (Layar Kecil) */
@@ -78,6 +75,27 @@
             .profile-text p {
                 text-align: left;
             }
+        }
+
+        /* CSS untuk List Pengalaman & Pendidikan */
+        .resume-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .resume-list li {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .resume-title {
+            font-size: 1.1em;
+            color: #2c3e50;
+            margin-bottom: 2px;
+        }
+        .resume-meta {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 8px;
         }
 
         .skills-container {
@@ -101,6 +119,7 @@
         a:hover {
             text-decoration: underline;
         }
+        
         /* CSS Tambahan untuk Gambar Proyek */
         .project-img-container {
             text-align: center;
@@ -120,11 +139,11 @@
             font-style: italic;
             margin-top: 8px;
         }
-        ul {
+        .contact-list {
             list-style-type: none;
             padding-left: 0;
         }
-        ul li {
+        .contact-list li {
             margin-bottom: 10px;
         }
     </style>
@@ -136,19 +155,55 @@
         <p>Aspiring Geoscientist | Geophysical Surveyor | Subsurface Modelling & Disaster Mitigation</p>
     </header>
 
+    <!-- 1. PROFILE SUMMARY & PHOTO -->
     <div class="section profile-layout">
         <div class="profile-text">
             <h2>Profile Summary</h2>
             <p>A Geophysics fresh graduate with a high dedication to subsurface exploration and mitigation risk analysis. Possesses technical expertise in operating several geophysical instruments such as Microtremor, Ground Penetrating Radar (GPR), and Seismic, and is experienced in performing subsurface data interpretation for various campus projects. In addition to geophysical instrument expertise, possesses extensive field experience as a mapping method field assistant, responsible for spatial data acquisition from Total Station and Drone operation for area mapping. Other experiences are further strengthened through involvement at BMKG, focusing on seismic data interpretation, earthquake waveform analysis, and data processing to understand tectonic characteristics and disaster mitigation. Currently actively seeking professional opportunities in the energy and disaster mitigation industries that challenge skills for broader experience.</p>
         </div>
         
-        <!-- BAGIAN FOTO PROFIL -->
         <div class="profile-image-container">
-            <!-- PENTING: Ganti 'foto-saya.jpg' dengan nama file foto Anda yang sebenarnya di GitHub -->
             <img src="photo-saya.png" alt="Foto Ahmad Rianul Qauliah" class="profile-photo">
         </div>
     </div>
 
+    <!-- 2. EDUCATION -->
+    <div class="section">
+        <h2>Education</h2>
+        <ul class="resume-list">
+            <li>
+                <div class="resume-title"><strong>Bachelor of Science in Geophysics</strong></div>
+                <div class="resume-meta">[Nama Universitas Anda] | [Tahun Masuk] – [Tahun Lulus]</div>
+                <div>Undergraduate Thesis (Skripsi) focused on subsurface exploration using the Spatial Autocorrelation (SPAC) method and Monte Carlo inversion.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 3. ORGANIZATIONAL EXPERIENCE -->
+    <div class="section">
+        <h2>Organizational Experience</h2>
+        <ul class="resume-list">
+            <li>
+                <div class="resume-title"><strong>Field Assistant - Mapping Method</strong></div>
+                <div class="resume-meta">[Nama Laboratorium/Organisasi Kampus] | [Bulan Tahun] – [Bulan Tahun]</div>
+                <div>Responsible for spatial data acquisition using Total Station and Drone operations for accurate area mapping and topographical analysis.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 4. PROFESSIONAL EXPERIENCE -->
+    <div class="section">
+        <h2>Professional Experience</h2>
+        <ul class="resume-list">
+            <li>
+                <div class="resume-title"><strong>Geophysics Intern / Data Analyst</strong></div>
+                <div class="resume-meta">Badan Meteorologi, Klimatologi, dan Geofisika (BMKG) | [Bulan Tahun] – [Bulan Tahun]</div>
+                <div>Focused on seismic data interpretation, earthquake waveform analysis, and data processing to understand tectonic characteristics and disaster mitigation strategies.</div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 5. KOMPETENSI TEKNIS -->
     <div class="section">
         <h2>Kompetensi Teknis</h2>
         <p>Dalam melakukan pengolahan data geofisika, saya secara rutin menggunakan pendekatan komputasional. Berikut adalah beberapa metode dan perangkat lunak yang saya kuasai:</p>
@@ -162,6 +217,7 @@
         </div>
     </div>
 
+    <!-- 6. BUKTI PROYEK PENELITIAN -->
     <div class="section">
         <h2>Bukti Proyek Penelitian</h2>
         <p>Gambar berikut menampilkan contoh visual dari analisis data seismik menggunakan metode SPAC yang telah saya lakukan:</p>
@@ -172,10 +228,11 @@
         </div>
     </div>
 
+    <!-- 7. KONTAK & PROFESIONAL -->
     <div class="section">
         <h2>Kontak & Profesional</h2>
         <p>Untuk diskusi lebih lanjut, Anda dapat menghubungi saya melalui tautan berikut:</p>
-        <ul>
+        <ul class="contact-list">
             <li><strong>WhatsApp:</strong> <a href="https://wa.me/6282292612490" target="_blank" rel="noopener noreferrer">+6282292612490</a></li>
             <li><strong>Email:</strong> <a href="mailto:ahmadrianulqauliah@gmail.com">ahmadrianulqauliah@gmail.com</a></li>
             <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ahmad-rianul-qauliah-062a572aa" target="_blank" rel="noopener noreferrer">www.linkedin.com/ahmadrianulqauliah</a></li>
