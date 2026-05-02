@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Judul yang muncul di Tab Browser -->
-    <title>Ahmad Rianul Qauliah - Portofolio Akademik</title>
+    <title>Ahmad Rianul Qauliah - Academic Portfolio</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,7 +12,6 @@
             color: #333;
             
             /* ATUR LEBAR HALAMAN DI SINI */
-            /* Semakin besar angkanya (misal 1200px), semakin lebar area teksnya */
             max-width: 1100px; 
             
             margin: 0 auto;
@@ -48,14 +47,14 @@
         /* CSS UNTUK TATA LETAK PROFIL & FOTO */
         .profile-layout {
             display: flex;
-            align-items: center; /* Membuat teks dan foto sejajar di tengah */
-            gap: 40px; /* Jarak antara teks dan foto */
+            align-items: center;
+            gap: 40px;
         }
         .profile-text {
-            flex: 1; /* Teks akan mengambil sisa ruang yang ada */
+            flex: 1;
         }
         .profile-image-container {
-            flex-shrink: 0; /* Mencegah foto tertekan oleh teks */
+            flex-shrink: 0;
             text-align: center;
         }
         .profile-photo {
@@ -69,7 +68,7 @@
         /* Pengaturan agar rapi saat dibuka di HP (Layar Kecil) */
         @media (max-width: 768px) {
             .profile-layout {
-                flex-direction: column-reverse; /* Foto akan pindah ke atas teks di HP */
+                flex-direction: column-reverse;
                 text-align: center;
             }
             .profile-text p {
@@ -82,8 +81,8 @@
             list-style-type: none;
             padding-left: 0;
         }
-        .resume-list li {
-            margin-bottom: 20px;
+        .resume-list > li {
+            margin-bottom: 25px;
             text-align: justify;
         }
         .resume-title {
@@ -96,6 +95,14 @@
             color: #7f8c8d;
             font-style: italic;
             margin-bottom: 8px;
+        }
+        .resume-list ul {
+            padding-left: 20px;
+            margin-top: 5px;
+            list-style-type: disc;
+        }
+        .resume-list ul li {
+            margin-bottom: 5px;
         }
 
         .skills-container {
@@ -151,7 +158,7 @@
 <body>
 
     <header>
-        <h1>Ahmad Rianul Qauliah - Academic Portofolio</h1>
+        <h1>Ahmad Rianul Qauliah - Academic Portfolio</h1>
         <p>Aspiring Geoscientist | Geophysical Surveyor | Subsurface Modelling & Disaster Mitigation</p>
     </header>
 
@@ -159,11 +166,11 @@
     <div class="section profile-layout">
         <div class="profile-text">
             <h2>Profile Summary</h2>
-            <p>A Geophysics fresh graduate with a high dedication to subsurface exploration and mitigation risk analysis. Possesses technical expertise in operating several geophysical instruments such as Microtremor, Ground Penetrating Radar (GPR), and Seismic, and is experienced in performing subsurface data interpretation for various campus projects. In addition to geophysical instrument expertise, possesses extensive field experience as a mapping method field assistant, responsible for spatial data acquisition from Total Station and Drone operation for area mapping. Other experiences are further strengthened through involvement at BMKG, focusing on seismic data interpretation, earthquake waveform analysis, and data processing to understand tectonic characteristics and disaster mitigation. Currently actively seeking professional opportunities in the energy and disaster mitigation industries that challenge skills for broader experience.</p>
+            <p>A Geophysics fresh graduate with a high dedication to subsurface exploration and mitigation risk analysis. Possesses technical expertise in operating several geophysical instruments such as Microtremor, Ground Penetrating Radar (GPR), and Seismic, and is experienced in performing subsurface data interpretation for various campus projects. In addition to geophysical instrument expertise, possesses extensive field experience as a mapping method field assistant, responsible for spatial data acquisition from Total Station and Drone operation for area mapping. Other experiences are further strengthened through involvement at BMKG, focusing on seismic data interpretation, earthquake waveform analysis, and data processing to understand tectonic characteristics and disaster mitigation. Currently actively seeking professional opportunities in the energy and disaster mitigation industries that challenge skills for broader experience. <!--[cite: 1] --></p>
         </div>
         
         <div class="profile-image-container">
-            <img src="photo-saya.png" alt="Foto Ahmad Rianul Qauliah" class="profile-photo">
+            <img src="photo-saya.png" alt="Photo of Ahmad Rianul Qauliah" class="profile-photo">
         </div>
     </div>
 
@@ -172,10 +179,9 @@
         <h2>Education</h2>
         <ul class="resume-list">
             <li>
-                <div class="resume-title"><strong>Bachelor of Science in Geophysics</strong></div>
-                <div class="resume-meta">Hasanuddin University | 2020 – 2026</div>
-                <div>Thesis "Characterization of the Shear-Wave Velocity Profile Using the SPAC (Spatial Autocorrelation) Method: A Case Study of Lonjoboko Village, Gowa"</div>
-                <div>Thesis "I co-authored the book "Prediksi Lintasan dan Laju Pusaran Siklon Tropis" (ISBN: 9789795304852), published by Unhas Press in 2023. My contribution focused on developing analytical methodologies and data modeling to predict tropical cyclone dynamics, providing a scientific foundation for more accurate disaster risk mitigation efforts."</div>
+                <div class="resume-title"><strong>Bachelor's Degree (S1) in Geophysics</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Universitas Hasanuddin | August 2020 - May 2026 | GPA: 3.75 <!--[cite: 1] --></div>
+                <div>Final thesis: "Characterization of the Shear-Wave Velocity Profile Using the SPAC (Spatial Autocorrelation) Method: A Case Study of Lonjoboko Village, Gowa" <!--[cite: 1] --></div>
             </li>
         </ul>
     </div>
@@ -185,9 +191,27 @@
         <h2>Organizational Experience</h2>
         <ul class="resume-list">
             <li>
-                <div class="resume-title"><strong>Field Assistant - Mapping Method</strong></div>
-                <div class="resume-meta">[Nama Laboratorium/Organisasi Kampus] | [Bulan Tahun] – [Bulan Tahun]</div>
-                <div>Responsible for spatial data acquisition using Total Station and Drone operations for accurate area mapping and topographical analysis.</div>
+                <div class="resume-title"><strong>Head of Academic Division</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Himpunan Ahli Geofisika Indonesia Student Chapter Universitas Hasanuddin (HAGI SC UH) | April 2023 - September 2024 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Became a speaker at the HAGI learning together event with more than 15 members on the theme "Common Spatial Data in Python". <!--[cite: 1] --></li>
+                    <li>Responsible for creating and working on the "Learning Together II (Introduction to Basic Geoelectrics: Processing Geoelectrical Data with Res2Dinv)" program. <!--[cite: 1] --></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resume-title"><strong>Academic Member</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Himpunan Ahli Geofisika Indonesia Student Chapter Universitas Hasanuddin (HAGI SC UH) | April 2022 - April 2023 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Provided information every month on social media related to Geophysics. <!--[cite: 1] --></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resume-title"><strong>Academic Member</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Himpunan Mahasiswa Geofisika Universitas Hasanuddin (HMGF UH) | November 2021 - August 2023 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Carried out several programs such as Geophysical and Geoelectric Instrumental Studies. <!--[cite: 1] --></li>
+                    <li>Successfully conducted Geophysical Instrumental Studies (GIS) on Automatic Weather Stations with 30+ participants. <!--[cite: 1] --></li>
+                </ul>
             </li>
         </ul>
     </div>
@@ -197,47 +221,112 @@
         <h2>Professional Experience</h2>
         <ul class="resume-list">
             <li>
-                <div class="resume-title"><strong>Geophysics Intern / Data Analyst</strong></div>
-                <div class="resume-meta">Badan Meteorologi, Klimatologi, dan Geofisika (BMKG) | [Bulan Tahun] – [Bulan Tahun]</div>
-                <div>Focused on seismic data interpretation, earthquake waveform analysis, and data processing to understand tectonic characteristics and disaster mitigation strategies.</div>
+                <div class="resume-title"><strong>Student Project</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">EarthScope 2025 Seismology Skill Building Workshop Project Base | September 2025 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Conducted investigation and created a map regarding the 2018 Palu earthquake under the project title "Investigating the 2018 Palu Earthquake Seismicity Mapping and Waveform Analysis". <!--[cite: 1] --></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resume-title"><strong>Operator DAQ (Data Acquisition) & Field Technician</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Laboratorium Geofisika Padat Hasanuddin University Project Base | January 2025 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Conducted data acquisition and sensor (Geophone) installation using the Microtremor method (SPAC and HVSR) in Gowa Regency. <!--[cite: 1] --></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resume-title"><strong>Operator DAQ (Data Acquisition)</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Laboratorium Geofisika Padat Hasanuddin University Project Base | December 2024 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Conducted data acquisition using Ground Penetrating Radar (GPR) in Somba Opu Fort, Makassar. <!--[cite: 1] --></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resume-title"><strong>Mapping and Drone Method Field Assistant</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Universitas Hasanuddin Contract Base | January 2024 - June 2024 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Provided modules on mapping and taught 220+ students (Geophysics 2021, 2022, and 2023) how to use tools (Total Station) to capture and process data. <!--[cite: 1] --></li>
+                    <li>Explained the methods used in mapping (polygon methods) and gave assessment scores to practitioners. <!--[cite: 1] --></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resume-title"><strong>Student Intern</strong> <!--[cite: 1] --></div>
+                <div class="resume-meta">Balai Besar Meteorologi, Klimatologi dan Geofisika Wilayah IV Makassar (BBMKG IV Makassar) | July 2023 - August 2023 <!--[cite: 1] --></div>
+                <ul>
+                    <li>Processed data from SeisComp software to determine earthquake parameters such as hypocenter, magnitude, epicenter, and depth. <!--[cite: 1] --></li>
+                    <li>Monitored earthquakes in real-time with SeisComp and entered earthquake data daily. <!--[cite: 1] --></li>
+                    <li>Learned about seismology and how to mitigate earthquakes and tsunamis: "Analysis of the Distribution of East Luwu and North Luwu Earthquakes in July 2023 using the Wadati Diagram Method". <!--[cite: 1] --></li>
+                </ul>
             </li>
         </ul>
     </div>
 
-    <!-- 5. KOMPETENSI TEKNIS -->
+    <!-- 5. TECHNICAL SKILLS (KOMPETENSI TEKNIS) -->
     <div class="section">
-        <h2>Kompetensi Teknis</h2>
-        <p>Dalam melakukan pengolahan data geofisika, saya secara rutin menggunakan pendekatan komputasional. Berikut adalah beberapa metode dan perangkat lunak yang saya kuasai:</p>
+        <h2>Technical Skills</h2>
+        <p>In processing geophysical data, I routinely utilize computational approaches. Below are some of the methods, skills, and software I am proficient in:</p>
         <div class="skills-container">
-            <span class="skill-tag">Seismologi</span>
-            <span class="skill-tag">Metode SPAC</span>
-            <span class="skill-tag">Inversi Monte Carlo</span>
+            <span class="skill-tag">Seismology</span>
+            <span class="skill-tag">SPAC Method</span>
+            <span class="skill-tag">Monte Carlo Inversion</span>
             <span class="skill-tag">Python (ObsPy, NumPy, Matplotlib)</span>
+            <span class="skill-tag">Geotechnical Analysis</span> <!--[cite: 1] -->
+            <span class="skill-tag">ArcGIS & QGIS</span> <!--[cite: 1] -->
             <span class="skill-tag">Generic Mapping Tools (GMT)</span>
             <span class="skill-tag">Geopsy</span>
+            <span class="skill-tag">Interactive Petrophysics</span> <!--[cite: 1] -->
+            <span class="skill-tag">Survey Design</span> <!--[cite: 1] -->
+            <span class="skill-tag">Thermodynamics</span> <!--[cite: 1] -->
+            <span class="skill-tag">Scientific Writing</span> <!--[cite: 1] -->
         </div>
     </div>
 
-    <!-- 6. BUKTI PROYEK PENELITIAN -->
+    <!-- 6. ACHIEVEMENTS & OTHER EXPERIENCE -->
     <div class="section">
-        <h2>Bukti Proyek Penelitian</h2>
-        <p>Gambar berikut menampilkan contoh visual dari analisis data seismik menggunakan metode SPAC yang telah saya lakukan:</p>
+        <h2>Achievements & Certifications</h2>
+        <ul class="resume-list">
+            <li>
+                <div class="resume-title"><strong>Trainings & Courses</strong></div>
+                <ul>
+                    <li>Level 1 Program IWCF (2026) - IWCF <!--[cite: 1] --></li>
+                    <li>Oil & Gas Industry Operations and Markets (2025) - Duke University (Coursera) <!--[cite: 1] --></li>
+                    <li>Map Academy: Get Mapping Quickly, with QGIS (2024) - Udemy <!--[cite: 1] --></li>
+                    <li>Petroleum School Migas.id Batch 8 (2023) <!--[cite: 1] --></li>
+                    <li>Programming for Everybody (Getting Started with Python) (2022) - Michigan University (Coursera) <!--[cite: 1] --></li>
+                    <li>Python for Data Science & GIS Analysis (2021) - Geosoftware Community <!--[cite: 1] --></li>
+                </ul>
+            </li>
+            <li>
+                <div class="resume-title"><strong>Workshops & Competitions</strong></div>
+                <ul>
+                    <li>Trio Migas.id Workshop Program (Reservoir engineering, drilling techniques, and production techniques) (2024) <!--[cite: 1] --></li>
+                    <li>Competition Finalist Transfest Lomba Maket Nasional 2019 - ITS Surabaya <!--[cite: 1] --></li>
+                    <li>3rd OSN Kebumian Luwu Timur 2018 <!--[cite: 1] --></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 7. BUKTI PROYEK PENELITIAN -->
+    <div class="section">
+        <h2>Research Project Evidence</h2>
+        <p>The following image displays a visual example of seismic data analysis using the SPAC method that I have conducted:</p>
         
         <div class="project-img-container">
-            <img src="MonteCarlo.png" alt="Visualisasi Grafik Metode SPAC" class="project-img">
-            <p class="img-caption">Gambar 1: Visualisasi data pengolahan metode SPAC.</p>
+            <img src="MonteCarlo.png" alt="Visualization of SPAC Method" class="project-img">
+            <p class="img-caption">Figure 1: Visualization of data processing using the SPAC method.</p>
         </div>
     </div>
 
-    <!-- 7. KONTAK & PROFESIONAL -->
+    <!-- 8. KONTAK & PROFESIONAL -->
     <div class="section">
-        <h2>Kontak & Profesional</h2>
-        <p>Untuk diskusi lebih lanjut, Anda dapat menghubungi saya melalui tautan berikut:</p>
+        <h2>Contact & Professional</h2>
+        <p>For further discussion regarding seismic research, geophysical analysis, or professional opportunities, you can reach me through the following links:</p>
         <ul class="contact-list">
-            <li><strong>WhatsApp:</strong> <a href="https://wa.me/6282292612490" target="_blank" rel="noopener noreferrer">+6282292612490</a></li>
-            <li><strong>Email:</strong> <a href="mailto:ahmadrianulqauliah@gmail.com">ahmadrianulqauliah@gmail.com</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ahmad-rianul-qauliah-062a572aa" target="_blank" rel="noopener noreferrer">www.linkedin.com/ahmadrianulqauliah</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/ahmadrianul" target="_blank" rel="noopener noreferrer">github.com/ahmadrianul</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/6282292612490" target="_blank" rel="noopener noreferrer">+6282292612490</a> <!--[cite: 1] --></li>
+            <li><strong>Email:</strong> <a href="mailto:ahmadrianulqauliah@gmail.com">ahmadrianulqauliah@gmail.com</a> <!--[cite: 1] --></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ahmad-rianul-qauliah-062a572aa" target="_blank" rel="noopener noreferrer">linkedin.com/in/ahmadrianulqauliah</a> <!--[cite: 1] --></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/ahmadrianul" target="_blank" rel="noopener noreferrer">github.com/ahmadrianul</a> <!--[cite: 1] --></li>
         </ul>
     </div>
 
