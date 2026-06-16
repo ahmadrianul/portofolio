@@ -68,15 +68,17 @@ Untuk memperbaruinya dengan foto asli:
    <img src="assets/images/gempa-palu.jpg" alt="Dokumentasi Seismogram Palu 2018" style="width:100%; border-radius:8px; margin-top:1rem;">
    ```
 
-### 3. Mengaktifkan Formulir Kontak Sungguhan (Formspree)
-Agar formulir kontak di website Anda bisa benar-benar mengirimkan email ke kotak masuk Anda secara gratis:
-1. Daftarkan email Anda di [Formspree](https://formspree.io/).
-2. Buat Form baru dan salin tautan Endpoint Formspree Anda (misal: `https://formspree.io/f/xbjnqypo`).
-3. Buka `index.html`, cari form kontak (sekitar baris 531) dan sesuaikan kodenya menjadi:
+### 3. Mengaktifkan Formulir Kontak Sungguhan (Web3Forms)
+Agar formulir kontak di website Anda bisa mengirimkan email asli ke kotak masuk Anda secara gratis tanpa perlu server backend:
+1. Kunjungi situs [Web3Forms](https://web3forms.com/).
+2. Masukkan alamat email Anda pada kotak input utama untuk mendaftar secara gratis.
+3. Anda akan langsung menerima **Access Key** unik di kotak masuk email Anda.
+4. Buka berkas [index.html](file:///C:/Users/RIANO/.gemini/antigravity/scratch/portfolio-ahmad/index.html) dan cari baris berikut (sekitar baris 665):
    ```html
-   <form id="contact-form" action="https://formspree.io/f/YOUR_ID_DI_FORMSPREE" method="POST">
+   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
    ```
-4. Buka `script.js` pada bagian akhir berkas, lalu hapus atau sesuaikan logika `contactForm.addEventListener('submit', ...)` agar pengiriman data form dikelola secara langsung oleh Formspree.
+5. Ganti `YOUR_ACCESS_KEY_HERE` dengan Access Key yang Anda dapatkan dari Web3Forms.
+6. Simpan berkas. Sekarang, setiap kali pengunjung mengisi formulir, pesan akan dikirim langsung ke email Anda, dan sistem akan menampilkan pesan sukses di website secara langsung!
 
 ---
 

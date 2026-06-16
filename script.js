@@ -199,37 +199,53 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const nameInput = document.getElementById('name').value;
-            const emailInput = document.getElementById('email').value;
-            const messageInput = document.getElementById('message').value;
+            const accessKeyInput = contactForm.querySelector('input[name="access_key"]').value;
+
+            // Pastikan user sudah mengganti placeholder key
+            if (accessKeyInput === 'YOUR_ACCESS_KEY_HERE') {
+                formStatus.style.display = 'block';
+                formStatus.className = 'form-status error';
+                formStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Mohon ganti 'YOUR_ACCESS_KEY_HERE' dengan Access Key Web3Forms Anda di file index.html terlebih dahulu.`;
+                return;
+            }
 
             // Form Status: Loading state
             formStatus.style.display = 'block';
             formStatus.className = 'form-status';
             formStatus.textContent = 'Mengirim pesan...';
             
-            // Mock sending delay
-            setTimeout(() => {
-                // Success Mock
-                formStatus.className = 'form-status success';
-                formStatus.innerHTML = `<i class="fas fa-check-circle"></i> Terima kasih ${nameInput}, pesan Anda berhasil dikirim! Saya akan segera menghubungi Anda.`;
-                
-                // Clear Form
-                contactForm.reset();
-                
-                // Hide status after 5 seconds
+            const formData = new FormData(contactForm);
+            
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    // Success
+                    formStatus.className = 'form-status success';
+                    formStatus.innerHTML = `<i class="fas fa-check-circle"></i> Terima kasih ${nameInput}, pesan Anda berhasil dikirim! Saya akan segera menghubungi Anda.`;
+                    contactForm.reset();
+                } else {
+                    // API Error Response
+                    console.log(response);
+                    formStatus.className = 'form-status error';
+                    formStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Maaf, terjadi kesalahan: ${json.message}`;
+                }
+            })
+            .catch(error => {
+                // Connection/Network Error
+                console.log(error);
+                formStatus.className = 'form-status error';
+                formStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Maaf, terjadi kesalahan jaringan saat mengirim pesan.`;
+            })
+            .then(() => {
+                // Sembunyikan status setelah 5 detik
                 setTimeout(() => {
                     formStatus.style.display = 'none';
                 }, 5000);
-
-            }, 1500);
-
-            /* 
-               CATATAN UNTUK DEPLOYMENT AKTUAL:
-               Untuk mengaktifkan pengiriman email sungguhan di GitHub Pages, Anda dapat 
-               mengganti form submission di index.html dengan Formspree atau EmailJS.
-               Contoh menggunakan Formspree:
-               <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            */
+            });
         });
     }
 });
