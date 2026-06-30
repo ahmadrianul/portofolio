@@ -248,4 +248,114 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ==========================================
+    // 8. LIGHTBOX MODAL GALLERY
+    // ==========================================
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+    const closeModal = document.querySelector('.close-modal');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const openGalleryBtns = document.querySelectorAll('.open-gallery-btn');
+
+    let currentImages = [];
+    let currentCaptions = [];
+    let currentIndex = 0;
+
+    if (modal && openGalleryBtns.length > 0) {
+        openGalleryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const imagesStr = btn.getAttribute('data-images');
+                const captionsStr = btn.getAttribute('data-captions') || '';
+                
+                if (imagesStr) {
+                    currentImages = imagesStr.split(',').map(s => s.trim());
+                    currentCaptions = captionsStr ? captionsStr.split(',').map(s => s.trim()) : [];
+                    currentIndex = 0;
+                    
+                    showImage(currentIndex);
+                    modal.style.display = 'flex';
+                    setTimeout(() => modal.classList.add('show'), 10);
+                    document.body.style.overflow = 'hidden'; // prevent background scroll
+                }
+            });
+        });
+
+        const showImage = (index) => {
+            modalImg.src = currentImages[index];
+            
+            // Set caption
+            if (currentCaptions[index]) {
+                modalCaption.textContent = currentCaptions[index];
+            } else {
+                modalCaption.textContent = `Foto ${index + 1} dari ${currentImages.length}`;
+            }
+
+            // Hide/show navigation buttons based on image count
+            if (currentImages.length <= 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
+            }
+        };
+
+        const navigateImage = (direction) => {
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % currentImages.length;
+            } else if (direction === 'prev') {
+                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+            }
+            showImage(currentIndex);
+        };
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateImage('prev');
+        });
+        
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navigateImage('next');
+        });
+
+        // Close modal when Close Button is clicked
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+            document.body.style.overflow = '';
+        });
+
+        // Close modal when clicking outside the content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('modal-content')) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('show')) {
+                if (e.key === 'ArrowRight') navigateImage('next');
+                if (e.key === 'ArrowLeft') navigateImage('prev');
+                if (e.key === 'Escape') {
+                    modal.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 300);
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    }
 });
+
