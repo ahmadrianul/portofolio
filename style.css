@@ -1289,6 +1289,51 @@ img {
    GALLERY PREVIEW & MODAL LIGHTBOX STYLES
    ========================================== */
 
+/* Timeline Media Grid Layout (Side-by-Side on PC/Tablet) */
+@media (min-width: 769px) {
+    .timeline-body.has-media {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 2.5rem;
+        align-items: center;
+    }
+    
+    .timeline-body.has-media .timeline-list {
+        margin-bottom: 0;
+    }
+    
+    .timeline-body.has-media .gallery-preview-container,
+    .timeline-body.has-media .timeline-media-placeholder {
+        margin-top: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .timeline-body.has-media .gallery-thumbnail {
+        height: 230px;
+    }
+    
+    .timeline-body.has-media .timeline-media-placeholder {
+        height: 230px;
+        box-sizing: border-box;
+    }
+}
+
+@media (min-width: 1024px) {
+    .timeline-body.has-media {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 3.5rem;
+    }
+    
+    .timeline-body.has-media .gallery-thumbnail {
+        height: 250px;
+    }
+    
+    .timeline-body.has-media .timeline-media-placeholder {
+        height: 250px;
+    }
+}
+
 /* Gallery Preview Card in Timeline */
 .gallery-preview-container {
     margin-top: 1.5rem;
