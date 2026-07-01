@@ -2,16 +2,16 @@
 
 Welcome to the repository of my personal portfolio website. This site is designed to present my academic background, technical competencies, field experience, and research projects in the field of geophysics.
 
-👉 **[View Live Portfolio Website](https://ahmadrianul.github.io/portofolio/)**
+**[View Live Portfolio Website](https://ahmadrianul.github.io/portofolio/)**
 
 ---
 
-## 📖 Portfolio Overview
+## Portfolio Overview
 This portfolio serves as a professional showcase of my capabilities as a Geophysics graduate from Universitas Hasanuddin. The website features a responsive modern interface, interactive timeline filtering, a lightbox gallery for project documentation, a dark/light theme switch, and full bilingual support (English and Indonesian).
 
 ---
 
-## 🌟 Section Highlights
+## Section Highlights
 
 ### 1. Home
 The landing section introduces my professional profile as a Geophysicist, complete with interactive subsurface visualization cards representing geophysical inversion and data analysis.
