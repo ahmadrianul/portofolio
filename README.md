@@ -1,106 +1,69 @@
-# Portofolio Website Ahmad Rianul Qauliah
+# Professional Geophysics & Seismology Portfolio
 
-Website Portofolio Profesional ini dirancang khusus untuk **Ahmad Rianul Qauliah**, seorang lulusan baru Geofisika Universitas Hasanuddin yang berfokus pada analisis data bawah permukaan (*subsurface data*), pemetaan GIS, dan keteknikan migas.
+Welcome to the official repository of my professional portfolio website. This site is designed to showcase my academic projects, fieldwork achievements, technical skills, and software developments in the field of Geophysics and Seismology.
 
-Website ini menggunakan arsitektur Vanilla HTML, CSS, dan JavaScript modern sehingga memiliki performa muat sangat cepat, responsif di semua perangkat, memiliki animasi yang premium, serta sangat mudah di-hosting langsung melalui **GitHub Pages**.
-
----
-
-## 🌟 Fitur Utama
-1. **Desain Kebumian Premium (Earth-Inspired Theme)**: Tema default gelap (*dark theme*) yang elegan dengan aksen warna amber/gold (representasi energi/gelombang seismik) dan emerald/green, serta dilengkapi dengan sakelar Mode Terang (*light theme toggle*).
-2. **Animasi Wavefront Dinamis**: Header latar belakang seismogram bergaya visual modern menggunakan SVG.
-3. **Filter Interaktif Timeline**: Pengalaman dan proyek akademik dapat difilter secara interaktif (Semua, Proyek & Riset, Pekerjaan Lapangan & Asisten, Organisasi) tanpa memuat ulang halaman.
-4. **Kecepatan & Responsivitas Maksimal**: Dibangun tanpa framework luar yang berat, responsif mulai dari layar ponsel (Mobile-friendly) hingga monitor desktop.
-5. **Ramah SEO**: Dilengkapi dengan tag meta deskripsi, author, dan kata kunci relevan untuk mempermudah pencarian Google.
+👉 **[View Live Portfolio Website](https://ahmadrianul.github.io/portofolio/)**
 
 ---
 
-## 📂 Struktur Berkas
+## 👨‍💻 About Me
+
+I am **Ahmad Rianul Qauliah**, a Geophysics graduate from Universitas Hasanuddin. I specialize in subsurface exploration, seismic data acquisition and processing, GIS mapping, and developing interactive geophysical analysis tools. My passion lies at the intersection of geology, physics, and computer science to solve complex subsurface problems and contribute to natural hazard mitigation and resource exploration.
+
+---
+
+## 🌟 Key Highlights & Projects
+
+The portfolio highlights several key academic and professional achievements:
+
+### 1. [SPAC-ARQ Processing Tool (Streamlit App)](https://spac-arq.streamlit.app/)
+* **Description:** An interactive web application built with Python to automate and visualize the extraction of Rayleigh wave dispersion curves from passive seismic (microtremor) data using the SPAC (Spatial Autocorrelation) method.
+* **Key Features:** Supports equilateral triangular and circular array geometries (up to 20 sessions), integrates RMSE outlier detection for automated time-window QC, and reduces data processing time from hours to minutes.
+
+### 2. [2018 Palu Earthquake Seismicity Mapping & Waveform Analysis](https://github.com/ahmadrianul/Investigating-the-2018-Palu-Earthquake-Seismicity-Mapping-and-Waveform-Analysis)
+* **Description:** A research project analyzing the waveform parameters and seismicity of the 2018 Palu earthquake using Python (`ObsPy`) and localmag algorithms, completed as part of the EarthScope 2025 Seismology Workshop.
+
+### 3. Passive Seismic SPAC Fieldwork (Gowa)
+* **Description:** Executed seismic acquisition using SmartSolo IGU-16HR sensors, processing microtremor data to construct 1D shear-wave velocity (Vs) profiles and perform site characterization (Vs30 calculation) for hazard mitigation.
+
+### 4. GPR (Ground Penetrating Radar) building structures mapping
+* **Description:** Conducted non-destructive shallow subsurface GPR scans to map brick remnants of the historic Benteng Somba Opu fort.
+
+---
+
+## 🛠️ Technical Skill Set
+
+* **Core Geophysics:** Seismic Interpretation, Seismology, Data Acquisition, Petrophysics, Ground Penetrating Radar (GPR), Seismogram Waveform Analysis.
+* **Programming & Software:** Python (ObsPy, Streamlit), QGIS, ArcGIS, Agisoft Metashape, Interactive Petrophysics (IP), Surfer, Microsoft Office.
+* **Certifications:** Level 1 IWCF Programme, Safety Compliance (CSMS Sahara.id), Diklat Pra POP.
+
+---
+
+## 🎨 Website Features
+
+* **Earth-Inspired Dark & Light Theme:** A highly customized dark mode with warm gold and emerald accents representing seismic energy, with an instantaneous light/dark theme switch.
+* **Responsive Interactive Timeline:** Filter projects dynamically by category (All, Projects & Research, Fieldwork, Organizations).
+* **Premium Lightbox Modal Gallery:** Preview fieldwork photos and seismogram plots directly in a beautiful slideshow modal.
+* **Optimized Performance:** Built using clean semantic HTML5, vanilla CSS3, and lightweight Javascript for rapid loading and SEO optimization.
+* **Working Contact Form:** Integrated with Web3Forms for direct email delivery from visitors.
+
+---
+
+## 📂 Directory Structure
+
 ```text
-portfolio-ahmad/
-├── index.html     # Struktur halaman utama (SEO, navigasi, konten CV lengkap)
-├── style.css      # Gaya visual (tema warna, grid responsif, animasi glassmorphic)
-├── script.js      # Logika interaktif (mode gelap/terang, filter proyek, scroll-reveal)
-└── README.md      # Panduan dokumentasi ini
+portofolio/
+├── index.html     # Main HTML structure & portfolio content
+├── style.css      # CSS styling, glassmorphism, responsive grids, and animations
+├── script.js      # Interactive features (modal gallery, theme switcher, timeline filters)
+└── assets/
+    └── images/    # Work images, logos, and screenshots (SPACWEB.png, seismograms, etc.)
 ```
 
 ---
 
-## 🛠️ Cara Kustomisasi
+## 📬 Contact & Connect
 
-### 1. Menambahkan Foto Profil Anda
-1. Buat folder baru bernama `assets` di dalam direktori proyek Anda.
-2. Di dalam folder `assets`, buat folder `images`.
-3. Simpan foto profil Anda (misal: `profile.jpg`) ke dalam folder tersebut: `assets/images/profile.jpg`.
-4. Buka file `index.html` dan cari baris berikut (sekitar baris 86):
-   ```html
-   <div class="profile-photo-placeholder">
-       <i class="fas fa-user-tie"></i>
-       <span>Foto Profil</span>
-   </div>
-   ```
-5. Ganti blok kode di atas dengan tag gambar:
-   ```html
-   <img src="assets/images/profile.jpg" alt="Ahmad Rianul Qauliah" class="profile-photo">
-   ```
-6. Tambahkan sedikit CSS di `style.css` untuk mempercantik foto tersebut:
-   ```css
-   .profile-photo {
-       width: 100%;
-       height: 100%;
-       object-fit: cover;
-       border-radius: inherit;
-   }
-   ```
-
-### 2. Mengganti Bukti Foto/Gambar Proyek & Lapangan
-Pada bagian timeline (`index.html`), terdapat placeholder bukti foto proyek seperti ini:
-```html
-<div class="timeline-media-placeholder">
-    <i class="far fa-image"></i>
-    <span>Dokumentasi Seismogram Palu 2018 (Foto akan diupdate)</span>
-</div>
-```
-Untuk memperbaruinya dengan foto asli:
-1. Masukkan gambar proyek Anda ke folder `assets/images/` (contoh: `gempa-palu.jpg`).
-2. Ubah kode di atas menjadi tag `<img>`:
-   ```html
-   <img src="assets/images/gempa-palu.jpg" alt="Dokumentasi Seismogram Palu 2018" style="width:100%; border-radius:8px; margin-top:1rem;">
-   ```
-
-### 3. Mengaktifkan Formulir Kontak Sungguhan (Web3Forms)
-Agar formulir kontak di website Anda bisa mengirimkan email asli ke kotak masuk Anda secara gratis tanpa perlu server backend:
-1. Kunjungi situs [Web3Forms](https://web3forms.com/).
-2. Masukkan alamat email Anda pada kotak input utama untuk mendaftar secara gratis.
-3. Anda akan langsung menerima **Access Key** unik di kotak masuk email Anda.
-4. Buka berkas [index.html](file:///C:/Users/RIANO/.gemini/antigravity/scratch/portfolio-ahmad/index.html) dan cari baris berikut (sekitar baris 665):
-   ```html
-   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-   ```
-5. Ganti `YOUR_ACCESS_KEY_HERE` dengan Access Key yang Anda dapatkan dari Web3Forms.
-6. Simpan berkas. Sekarang, setiap kali pengunjung mengisi formulir, pesan akan dikirim langsung ke email Anda, dan sistem akan menampilkan pesan sukses di website secara langsung!
-
----
-
-## 🚀 Panduan Deploy ke GitHub Pages
-
-Karena Anda menggunakan fitur GitHub Pages, berikut langkah-langkah mudah mempublikasikan website ini ke internet:
-
-1. **Buat Repositori Baru di GitHub**:
-   - Masuk ke akun GitHub Anda.
-   - Buat repositori baru (misalnya dengan nama `portofolio` atau `username.github.io`).
-   
-2. **Unggah File Kode**:
-   - Anda bisa menggunakan Git CLI atau mengunggah berkas secara langsung lewat browser di situs GitHub.
-   - Pastikan berkas `index.html`, `style.css`, dan `script.js` berada di **akar utama (root directory)** repositori Anda (bukan di dalam folder tambahan).
-
-3. **Aktifkan Fitur GitHub Pages**:
-   - Di repositori GitHub Anda, klik tab **Settings** (Pengaturan).
-   - Scroll ke bawah ke menu **Pages** di bilah kiri.
-   - Di bawah bagian **Build and deployment**, pilih Source: **Deploy from a branch**.
-   - Di bawah bagian Branch, pilih **main** (atau **master**), lalu pilih folder **/ (root)**.
-   - Klik **Save**.
-
-4. **Kunjungi Website Anda**:
-   - Tunggu sekitar 1-2 menit.
-   - Website Anda akan aktif di alamat: `https://username-github.github.io/nama-repositori/` (atau `https://username-github.github.io` jika nama repositori Anda menggunakan format tersebut).
+Feel free to reach out to me through the contact form on my portfolio or connect with me via:
+* **LinkedIn:** [Ahmad Rianul Qauliah](https://www.linkedin.com/in/ahmad-rianul-qauliah/)
+* **Email:** ahmadrianulq@gmail.com
