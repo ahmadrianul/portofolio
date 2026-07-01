@@ -1,36 +1,312 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==========================================
-    // 1. LIGHT / DARK THEME TOGGLE
+    // 1. BILINGUAL LANGUAGE SWITCHER (EN / ID)
+    // ==========================================
+    const langData = {
+        id: {
+            "nav-home": "Home",
+            "nav-about": "Tentang",
+            "nav-skills": "Keahlian",
+            "nav-experience": "Pengalaman",
+            "nav-certifications": "Sertifikasi",
+            "nav-contact": "Kontak",
+            "hero-greeting": "Halo, saya",
+            "hero-title": "Geofisika",
+            "hero-desc": "Lulusan Baru Geofisika Universitas Hasanuddin dengan fondasi akademik yang kuat dalam interpretasi data bawah permukaan, manajemen data spasial, dan analisis mitigasi resiko. Saat ini, secara aktif mencari peluang profesional di berbagai sektor, termasuk operasional teknis, pemetaan geospasial, industri energi, maupun manajemen risiko lingkungan, di mana dapat mengaplikasikan keahlian analisis dan eksekusi lapangan untuk mencapai tujuan strategis.",
+            "hero-cta-contact": "Hubungi Saya",
+            "hero-cta-projects": "Lihat Proyek",
+            "visual-inversi": "Inversi",
+            "visual-subsurface": "Model Bawah Permukaan",
+            "visual-analisis": "Analisis",
+            "visual-data": "Data Geofisika, Geologi & Spatial",
+            "about-title": "Tentang Saya",
+            "about-profile": "Profil",
+            "about-profile-desc-1": "Freshgraduate Geofisika dengan dedikasi tinggi pada eksplorasi bawah permukaan dan analisis risiko mitigasi. Memiliki keahlian teknis dalam mengoperasikan beberapa instrumen geofisika seperti mikrotremor, Ground Penetrating Radar (GPR), dan seismik, serta berpengalaman dalam melakukan interpretasi data bawah permukaan untuk berbagai proyek kampus.",
+            "about-profile-desc-2": "Selain keahlian instrumen geofisika, memiliki pengalaman lapangan sebagai asisten lapangan, bertanggung jawab atas akuisisi data spasial dari Total Station dan Drone untuk pemetaan. Saat ini secara aktif mencari peluang profesional di industri tambang, energi, maupun mitigasi bencana yang menantang kemampuan dan pengalaman yang lebih luas.",
+            "about-character": "Karakter Kerja",
+            "about-education": "Pendidikan",
+            "about-edu-degree": "Sarjana Geofisika | GPA: 3,75",
+            "about-edu-scholarship": "<strong>Beasiswa:</strong> Penerima Beasiswa Prestasi Akademik dari Pemerintah Kabupaten Luwu Timur (2020–2024).",
+            "about-edu-book": "<strong>Buku:</strong> Co-author Buku <span class=\"text-italic\">\"Prediksi Lintasan dan Laju Pusaran Siklon Tropis\"</span> ISBN: 9789795304852 (Unhas Press, 2023).",
+            "about-lang": "Bahasa",
+            "about-lang-id": "Indonesia (Native)",
+            "about-lang-en": "Inggris (Professional)",
+            "skills-title": "Keahlian & Kompetensi",
+            "skills-tech": "Keahlian Teknis",
+            "skills-software": "Software & Alat",
+            "skills-programming": "Bahasa Pemrograman",
+            "exp-title": "Pengalaman & Proyek Akademik",
+            "filter-all": "Semua",
+            "filter-project": "Proyek & Riset",
+            "filter-fieldwork": "Pekerjaan Lapangan",
+            "filter-org": "Organisasi",
+            "t1-title": "Aplikasi Web Interaktif",
+            "t1-desc": "Sebuah aplikasi web interaktif yang dibangun menggunakan Python untuk mengotomatisasi dan memvisualisasikan ekstraksi kurva dispersi gelombang Rayleigh dari data seismik pasif (mikrotremor) menggunakan metode SPAC (Spatial Autocorrelation). Mendukung geometri array umum (tata letak segitiga sama sisi dan melingkar hingga 20 sesi), aplikasi ini menyederhanakan pemrosesan sinyal geofisika yang kompleks, menawarkan alat yang andal dan mudah diakses bagi para geofisikawan untuk pembuatan profil kecepatan gelombang geser (Vs) 1D dan karakterisasi lokasi.",
+            "t1-bullet-1": "Mengintegrasikan kontrol kualitas jendela waktu otomatis (berdasarkan deteksi outlier RMSE) dan algoritma penumpukan (stacking) dua tahap untuk memangkas waktu pemrosesan data dari jam menjadi menit.",
+            "t1-bullet-2": "Memungkinkan pengguna untuk mengunggah file seismik mentah, menyaring jendela data yang bising (noisy), dan menyesuaikan batas pemotongan frekuensi secara real-time.",
+            "t1-bullet-3": "Mengekspor kurva dispersi yang cocok secara instan melalui antarmuka visual yang intuitif dan sangat interaktif.",
+            "t1-link-demo": "Buka Aplikasi Streamlit",
+            "t1-gallery": "Lihat Screenshot Aplikasi",
+            "t2-title": "Proyek Mahasiswa",
+            "t2-bullet-1": "Menganalisis karakteristik gelombang seismik dan memetakan Gempa Palu 2018 menggunakan Python (ObsPy) serta mengimplementasikan algoritma dari repositori localmag.",
+            "t2-bullet-2": "Memproses dan menyaring katalog data kegempaan regional yang besar untuk memfokuskan analisis secara spesifik pada 2 event utama.",
+            "t2-bullet-3": "Menginterpretasikan data waveform dari stasiun pemantau untuk mengukur parameter sumber gempa dan berhasil mengestimasi durasi minimum rekahan (rupture duration) sebesar 42 detik.",
+            "t2-bullet-4": "Membuat skrip untuk memvisualisasikan data episenter menjadi peta sebaran seismik guna mempermudah analisis pola patahan dan kondisi tektonik regional.",
+            "t2-link-github": "Repositori GitHub",
+            "t2-gallery": "Lihat Galeri Foto (4 Foto)",
+            "t3-title": "Operator Data Akuisisi & Teknisi Lapangan",
+            "t3-bullet-1": "Mengeksekusi akuisisi data seismik pasif menggunakan sensor SmartSolo IGU-16HR 3C 2Hz pada lintasan 100 meter dengan konfigurasi array geometrik SPAC segitiga (jari-jari 4,62 m) di Desa Lonjoboko, Kabupaten Gowa.",
+            "t3-bullet-2": "Memproses rekaman mikrotremor dengan mengekstraksi kurva dispersi melalui analisis koherensi spasial yang dicocokkan dengan fungsi Bessel jenis pertama orde nol (J_0).",
+            "t3-bullet-3": "Melakukan pemodelan bawah permukaan 1D dengan menerapkan algoritma inversi Monte Carlo pada kurva dispersi untuk mengestimasi profil kecepatan gelombang geser (Vs) dan menentukan kedalaman lapisan batuan dasar.",
+            "t3-bullet-4": "Mengarakterisasi 5 lapisan stratigrafi bawah permukaan dan menghitung nilai Vs30 sebesar 302,47 m/s untuk menetapkan klasifikasi lokasi sebagai Kelas Situs Tanah Sedang (SD) berdasarkan standar SNI 1726:2019.",
+            "t3-gallery": "Lihat Galeri Foto (4 Foto)",
+            "t4-title": "Operator Data Akuisisi (GPR)",
+            "t4-bullet-1": "Mengoperasikan Ground Penetrating Radar (GPR) untuk melakukan pemetaan bawah permukaan dangkal secara nondestruktif untuk mengidentifikasi dugaan sisa struktur bangunan di Benteng Somba Opu.",
+            "t4-bullet-2": "Mengeksekusi desain survei lapangan dengan mengumpulkan data pada 14 lintasan pengukuran.",
+            "t4-bullet-3": "Memproses data mentah (raw data) radargram menggunakan perangkat lunak Geoprojector untuk memetakan persebaran objek tanpa harus melakukan ekskavasi konvensional.",
+            "t4-bullet-4": "Menganalisis dan menginterpretasikan anomali amplitudo tinggi pada penampang radargram untuk mengidentifikasi sisa struktur bata benteng pada kedalaman 0,30 hingga 3 meter dengan fungsi permitivitas sebesar 5,5–5,7.",
+            "t4-gallery": "Lihat Foto Survei GPR",
+            "t5-title": "Analisis Petrofisika (Studi Kasus)",
+            "t5-bullet-1": "Mengoperasikan perangkat lunak Interactive Petrophysics V3.5 untuk mengevaluasi data Triple Combo Log dari sumur Wellington-KGS-1-32 dan berhasil mengidentifikasi zona prospek hidrokarbon pada kedalaman 3.422 kaki (ft) dengan nilai rata-rata Gamma Ray sebesar 41,399 API.",
+            "t5-bullet-2": "Melakukan perhitungan kuantitatif parameter petrofisika pada zona target yang menghasilkan saturasi air (Sw) sebesar 0,839, porositas efektif (PHIE) sebesar 0,0657, dan porositas total (PHIT) sebesar 0,0842.",
+            "t5-bullet-3": "Validasi litologi batuan dominan formasi menggunakan analisis crossplot NPHI/RHOB, yang secara akurat mengonfirmasi batupasir (0,19363%) dan dolomit (0,24281%) sebagai komponen utama reservoir bawah permukaan.",
+            "t5-gallery": "Lihat Galeri Foto (3 Foto)",
+            "t6-title": "Asisten Lapangan Metode Pemetaan dan Drone",
+            "t6-bullet-1": "Mengawasi dan membimbing lebih dari 220 mahasiswa Geofisika dalam melaksanakan akuisisi data spasial menggunakan total station, theodolite dan drone.",
+            "t6-bullet-2": "Memberikan pelatihan kepada para praktisi tentang penggunaan Agisoft Metashape untuk pemrosesan fotogrametri drone yang sesuai dan penggunaan ArcGIS/QGIS untuk manajemen data, digitalisasi, dan pembuatan peta.",
+            "t6-bullet-3": "Memberikan pengarahan teknis tentang metodologi survei topografi, khususnya metode poligon untuk memastikan penentuan batas dan koordinat yang akurat.",
+            "t6-bullet-4": "Mendemonstrasikan penerapan perangkat lunak Surfer untuk melakukan interpolasi berbasis grid, menghasilkan peta kontur terperinci dan model permukaan dua dimensi.",
+            "t6-bullet-5": "Melaksanakan jaminan dan kontrol data (QA/QC) pada semua data yang didapat di lapangan dan memberikan evaluasi kinerja serta skor penilaian.",
+            "t6-gallery": "Lihat Galeri Foto (4 Foto)",
+            "t7-title": "Ketua Divisi Akademik",
+            "t7-bullet-1": "Menjadi pembicara di acara Learning Together I bersama member HAGI SC UH dengan lebih dari 15 anggota dengan tema \"Common Spatial Data in Python\".",
+            "t7-bullet-2": "Bertanggung jawab untuk membuat dan mengerjakan program Learning Together II (Introduction to Basic Geoelectrics: Processing Geoelectrical Data with Res2Dinv) dengan lebih dari 10 peserta.",
+            "t7-bullet-3": "Menyediakan 1 atau 2 konten edukasi setiap bulan di media sosial HAGI SC UH terkait Geofisika.",
+            "t8-title": "Magang Geofisika",
+            "t8-bullet-1": "Melakukan monitoring aktivitas seismik regional secara real-time menggunakan SeisComP untuk mengidentifikasi anomali struktural dengan cepat.",
+            "t8-bullet-2": "Mengelola database pemantauan harian dari lebih dari 50 stasiun geofisika dengan merekam, memverifikasi, dan mengkatalogkan data kejadian gempa untuk menjaga integritas data.",
+            "t8-bullet-3": "Melakukan pengolahan dan interpretasi awal data seismik dengan proses picking fase gelombang P dan S secara manual guna menentukan parameter hiposenter, episenter, kedalaman, dan magnitudo.",
+            "t9-title": "Anggota Akademik",
+            "t9-bullet-1": "Melaksanakan beberapa program divisi seperti Studi Instrumentasi Geofisika dan Geolistrik.",
+            "t9-bullet-2": "Berhasil melaksanakan Geophysical Instrumental Studies (GIS) pada Automatic Weather Stations dengan lebih dari 30 peserta.",
+            "t10-title": "KKN Tematik Kebencanaan Universitas Hasanuddin (Pengabdian Masyarakat)",
+            "t10-bullet-1": "<strong>Pembuatan Peta Desa (PAPEDA):</strong> Menyusun peta administrasi infrastruktur Desa Limbong Wara berbasis data spasial spesifik menggunakan perangkat lunak GIS untuk penataan ruang desa yang akurat.",
+            "t10-bullet-2": "<strong>Peta Risiko Kebencanaan:</strong> Menganalisis kondisi topografi daerah setempat untuk menghasilkan peta zonasi kerawanan bencana guna mendukung edukasi kesiapsiagaan bagi warga.",
+            "t10-gallery": "Lihat Galeri Foto (2 Foto)",
+            "t11-title": "Proyek Pemetaan Kawasan Lereng Bawakaraeng",
+            "t11-bullet-1": "Mengolah data fotogrametri mentah dari hasil pemetaan drone kawasan lereng Gunung Bawakaraeng untuk menghasilkan model topografi 3D yang akurat pada area medan lereng.",
+            "t11-bullet-2": "Melakukan rekonstruksi data spasial menggunakan sistem koordinat WGS 84 dan mengoperasikan perangkat lunak Agisoft Metashape untuk memproduksi Dense Clouds, Orthophotos, dan peta Orthomosaics.",
+            "t11-bullet-3": "Menghasilkan dan menganalisis Digital Elevation Models (DEM) serta Digital Terrain Models (DTM) untuk merepresentasikan relief permukaan elevasi tanah.",
+            "cert-title": "Lisensi, Sertifikasi & Publikasi",
+            "pub-badge": "Publikasi Buku Terbit",
+            "pub-title": "Prediksi Lintasan dan Laju Pusaran Siklon Tropis",
+            "pub-desc": "Buku kolaboratif (sebagai co-author) yang membahas tentang model pemodelan dan prediksi lintasan serta pergerakan siklon tropis menggunakan parameter meteorologi dan geofisika.",
+            "cert-c3-title": "Diklat Pra POP (Pengawas Operasional Pertama)",
+            "cert-c11-title": "Finalist Transfest Lomba Maket Nasional",
+            "cert-c12-title": "Juara 3 OSN Kebumian Luwu Timur",
+            "contact-title": "Kontak Hubung",
+            "contact-subtitle": "Hubungi saya untuk peluang kolaborasi, diskusi proyek, atau pertanyaan lainnya.",
+            "contact-info-title": "Informasi Kontak",
+            "contact-info-address": "Makassar, Sulawesi Selatan, Indonesia",
+            "contact-form-title": "Formulir Pesan",
+            "form-submit": "Kirim Pesan"
+        },
+        en: {
+            "nav-home": "Home",
+            "nav-about": "About",
+            "nav-skills": "Skills",
+            "nav-experience": "Experience",
+            "nav-certifications": "Certifications",
+            "nav-contact": "Contact",
+            "hero-greeting": "Hello, I am",
+            "hero-title": "Geophysics",
+            "hero-desc": "A Geophysics Graduate from Universitas Hasanuddin with a strong academic foundation in subsurface data interpretation, spatial data management, and risk mitigation analysis. Currently actively seeking professional opportunities in technical operations, geospatial mapping, the energy industry, or environmental risk management, where I can apply my analysis and field execution skills to achieve strategic goals.",
+            "hero-cta-contact": "Contact Me",
+            "hero-cta-projects": "View Projects",
+            "visual-inversi": "Inversion",
+            "visual-subsurface": "Subsurface Model",
+            "visual-analisis": "Analysis",
+            "visual-data": "Geophysical, Geological & Spatial Data",
+            "about-title": "About Me",
+            "about-profile": "Profile",
+            "about-profile-desc-1": "A dedicated Geophysics graduate focused on subsurface exploration and natural hazard mitigation. Proficient in operating geophysical instruments such as microtremors, Ground Penetrating Radar (GPR), and seismics, with experience performing subsurface data interpretation for various academic projects.",
+            "about-profile-desc-2": "In addition to geophysical instrument expertise, possesses field experience as a field assistant, responsible for spatial data acquisition from Total Station and Drones for mapping. Currently seeking professional opportunities in the mining, energy, and disaster mitigation industries that challenge abilities and broader experience.",
+            "about-character": "Work Character",
+            "about-education": "Education",
+            "about-edu-degree": "Bachelor of Geophysics | GPA: 3.75",
+            "about-edu-scholarship": "<strong>Scholarship:</strong> Recipient of Academic Achievement Scholarship from East Luwu Regency Government (2020–2024).",
+            "about-edu-book": "<strong>Book:</strong> Co-author of Book <span class=\"text-italic\">\"Prediction of Tracks and Speed of Tropical Cyclone Vortex\"</span> ISBN: 9789795304852 (Unhas Press, 2023).",
+            "about-lang": "Languages",
+            "about-lang-id": "Indonesian (Native)",
+            "about-lang-en": "English (Professional)",
+            "skills-title": "Skills & Competencies",
+            "skills-tech": "Technical Skills",
+            "skills-software": "Software & Tools",
+            "skills-programming": "Programming Languages",
+            "exp-title": "Experience & Academic Projects",
+            "filter-all": "All",
+            "filter-project": "Projects & Research",
+            "filter-fieldwork": "Fieldwork",
+            "filter-org": "Organizations",
+            "t1-title": "Interactive Web Application",
+            "t1-desc": "An interactive web application built with Python to automate and visualize the extraction of Rayleigh wave dispersion curves from passive seismic (microtremor) data using the SPAC (Spatial Autocorrelation) method. Supporting generalized array geometries (equilateral triangular and circular layouts up to 20 sessions), the app simplifies complex geophysical signal processing, offering geophysicists a robust, accessible tool for 1D shear-wave velocity (Vs) profiling and site characterization.",
+            "t1-bullet-1": "Integrates automated time-window quality control (based on RMSE outlier detection) and a two-stage stacking algorithm to reduce data processing time from hours to minutes.",
+            "t1-bullet-2": "Allows users to upload raw seismic files, filter noisy windows, and adjust frequency-cut bounds in real-time.",
+            "t1-bullet-3": "Instantly exports the fitted dispersion curves through an intuitive and highly interactive visual interface.",
+            "t1-link-demo": "Open Streamlit App",
+            "t1-gallery": "View App Screenshot",
+            "t2-title": "Student Project",
+            "t2-bullet-1": "Analyzed seismic wave characteristics and mapped the 2018 Palu earthquake using Python (ObsPy) and implemented algorithms from the localmag repository.",
+            "t2-bullet-2": "Processed and filtered large regional seismicity data catalogs to focus analysis specifically on 2 main events.",
+            "t2-bullet-3": "Interpreted waveform data from monitoring stations to measure earthquake source parameters, successfully estimating a minimum rupture duration of 42 seconds.",
+            "t2-bullet-4": "Developed scripts to visualize epicenter data into seismicity distribution maps for simplified fault pattern and regional tectonic analysis.",
+            "t2-link-github": "GitHub Repository",
+            "t2-gallery": "View Photo Gallery (4 Photos)",
+            "t3-title": "Data Acquisition Operator & Field Technician",
+            "t3-bullet-1": "Executed passive seismic data acquisition using SmartSolo IGU-16HR 3C 2Hz sensors on a 100-meter line with an equilateral triangular SPAC geometric array configuration (4.62 m radius) in Lonjoboko Village, Gowa Regency.",
+            "t3-bullet-2": "Processed microtremor recordings by extracting dispersion curves through spatial autocorrelation analysis matched with the zeroth-order Bessel function of the first kind (J_0).",
+            "t3-bullet-3": "Performed 1D subsurface modeling by applying Monte Carlo inversion algorithms on dispersion curves to estimate shear-wave velocity (Vs) profiles and determine bedrock depth.",
+            "t3-bullet-4": "Characterized 5 subsurface stratigraphic layers and calculated a Vs30 value of 302.47 m/s to determine site classification as Site Class D (Medium Soil) based on SNI 1726:2019 standards.",
+            "t3-gallery": "View Photo Gallery (4 Photos)",
+            "t4-title": "Data Acquisition Operator (GPR)",
+            "t4-bullet-1": "Operated Ground Penetrating Radar (GPR) to perform non-destructive shallow subsurface mapping to identify suspected building remnants at Benteng Somba Opu.",
+            "t4-bullet-2": "Executed field survey design by collecting data across 14 measurement profiles.",
+            "t4-bullet-3": "Processed raw radargram data using Geoprojector software to map object distribution without conventional excavation.",
+            "t4-bullet-4": "Analyzed and interpreted high-amplitude anomalies on radargram profiles to identify fort brick structures at depths of 0.30 to 3 meters with a permittivity function of 5.5–5.7.",
+            "t4-gallery": "View GPR Survey Photo",
+            "t5-title": "Petrophysics Analysis (Case Study)",
+            "t5-bullet-1": "Operated Interactive Petrophysics V3.5 software to evaluate Triple Combo Log data from the Wellington-KGS-1-32 well, successfully identifying hydrocarbon prospect zones at a depth of 3,422 feet (ft) with an average Gamma Ray value of 41.399 API.",
+            "t5-bullet-2": "Conducted quantitative calculations of petrophysical parameters in target zones, yielding water saturation (Sw) of 0.839, effective porosity (PHIE) of 0.0657, and total porosity (PHIT) of 0.0842.",
+            "t5-bullet-3": "Validated dominant formation lithology using NPHI/RHOB crossplot analysis, accurately confirming sandstone (0.19363%) and dolomite (0.24281%) as the main reservoir components.",
+            "t5-gallery": "View Photo Gallery (3 Photos)",
+            "t6-title": "Field Assistant for Mapping & Drone Methods",
+            "t6-bullet-1": "Supervised and guided over 220 Geophysics students in executing spatial data acquisition using total station, theodolite, and drones.",
+            "t6-bullet-2": "Provided training to practitioners on using Agisoft Metashape for drone photogrammetry processing and ArcGIS/QGIS for data management, digitization, and mapping.",
+            "t6-bullet-3": "Provided technical guidance on topographic survey methodologies, specifically the traverse method, to ensure accurate boundaries and coordinate determination.",
+            "t6-bullet-4": "Demonstrated the application of Surfer software for grid-based interpolation to produce detailed contour maps and 2D surface models.",
+            "t6-bullet-5": "Executed data quality assurance and control (QA/QC) on all field data and provided performance evaluations and grading.",
+            "t6-gallery": "View Photo Gallery (4 Photos)",
+            "t7-title": "Head of Academic Division",
+            "t7-bullet-1": "Guest speaker at Learning Together I with HAGI SC UH members (15+ attendees) on 'Common Spatial Data in Python'.",
+            "t7-bullet-2": "Responsible for designing and executing Learning Together II (Introduction to Basic Geoelectrics: Processing Geoelectrical Data with Res2Dinv) with 10+ participants.",
+            "t7-bullet-3": "Produced 1-2 monthly educational contents on Geophysics for HAGI SC UH social media.",
+            "t8-title": "Geophysics Internship",
+            "t8-bullet-1": "Monitored real-time regional seismic activity using SeisComP to quickly identify structural anomalies.",
+            "t8-bullet-2": "Managed the daily monitoring database of 50+ geophysical stations by recording, verifying, and cataloging earthquake events to maintain data integrity.",
+            "t8-bullet-3": "Processed and interpreted initial seismic data by manually picking P and S-wave phases to determine hypocenter, epicenter, depth, and magnitude parameters.",
+            "t9-title": "Academic Division Member",
+            "t9-bullet-1": "Executed several division programs such as Geophysical Instrumentation Studies and Geoelectrical Surveys.",
+            "t9-bullet-2": "Successfully executed Geophysical Instrumental Studies (GIS) on Automatic Weather Stations with 30+ participants.",
+            "t10-title": "KKN Tematik Kebencanaan Universitas Hasanuddin (Community Service)",
+            "t10-bullet-1": "<strong>Village Mapping (PAPEDA):</strong> Compiled administrative and infrastructural maps of Limbong Wara Village based on specific spatial data using GIS software for accurate village spatial planning.",
+            "t10-bullet-2": "<strong>Disaster Risk Mapping:</strong> Analyzed local topography to generate disaster risk zoning maps to support preparedness education for residents.",
+            "t10-gallery": "View Photo Gallery (2 Photos)",
+            "t11-title": "Bawakaraeng Slopes Mapping Project",
+            "t11-bullet-1": "Processed raw photogrammetry data from drone mapping of the slopes of Mount Bawakaraeng to generate accurate 3D topographic models of the terrain.",
+            "t11-bullet-2": "Performed spatial data reconstruction using the WGS 84 coordinate system and operated Agisoft Metashape software to produce Dense Clouds, Orthophotos, and Orthomosaic maps.",
+            "t11-bullet-3": "Generated and analyzed Digital Elevation Models (DEM) and Digital Terrain Models (DTM) to represent terrain relief.",
+            "cert-title": "Licenses, Certifications & Publications",
+            "pub-badge": "Published Book",
+            "pub-title": "Prediction of Tracks and Speed of Tropical Cyclone Vortex",
+            "pub-desc": "Collaborative book (as co-author) discussing modeling and predicting tracks and speed of tropical cyclones using meteorological and geophysical parameters.",
+            "cert-c3-title": "Pre-POP Training (First Line Operational Supervisor)",
+            "cert-c11-title": "National Model Making Finalist - Transfest",
+            "cert-c12-title": "3rd Place - National Science Olympiad (OSN) in Earth Science, East Luwu",
+            "contact-title": "Contact Me",
+            "contact-subtitle": "Get in touch with me for collaboration opportunities, project discussions, or other inquiries.",
+            "contact-info-title": "Contact Information",
+            "contact-info-address": "Makassar, South Sulawesi, Indonesia",
+            "contact-form-title": "Message Form",
+            "form-submit": "Send Message"
+        }
+    };
+
+    const langToggleBtn = document.getElementById('lang-toggle');
+    const langLabel = document.getElementById('lang-label');
+    
+    // Check local storage for language preference, default is 'id' (Indonesian)
+    let currentLang = localStorage.getItem('portfolio-lang') || 'id';
+    
+    const setLanguage = (lang) => {
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            const key = el.getAttribute('data-lang');
+            if (langData[lang] && langData[lang][key]) {
+                el.innerHTML = langData[lang][key];
+            }
+        });
+        document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+            const key = el.getAttribute('data-lang');
+            if (langData[lang] && langData[lang][key]) {
+                el.setAttribute('placeholder', langData[lang][key]);
+            } else {
+                // Fallbacks for placeholder translations
+                const defaultPlaceholders = {
+                    "form-placeholder-name": lang === 'en' ? 'Full Name' : 'Nama Lengkap',
+                    "form-placeholder-email": lang === 'en' ? 'Email Address' : 'Alamat Email',
+                    "form-placeholder-message": lang === 'en' ? 'Your Message' : 'Pesan Anda'
+                };
+                if (defaultPlaceholders[key]) {
+                    el.setAttribute('placeholder', defaultPlaceholders[key]);
+                }
+            }
+        });
+        
+        // Handle specific photo gallery captions if they have data-captions-en / data-captions-id
+        document.querySelectorAll('[data-captions-en]').forEach(el => {
+            el.setAttribute('data-captions', el.getAttribute(`data-captions-${lang}`));
+        });
+
+        // Set the active language label
+        langLabel.textContent = lang.toUpperCase();
+        
+        // Save preference
+        localStorage.setItem('portfolio-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+        currentLang = lang;
+    };
+    
+    // Initial load
+    setLanguage(currentLang);
+    
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', () => {
+            const nextLang = currentLang === 'id' ? 'en' : 'id';
+            setLanguage(nextLang);
+        });
+    }
+
+    // ==========================================
+    // 1C. LIGHT / DARK THEME TOGGLE
     // ==========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = themeToggleBtn.querySelector('i');
+    const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
     
     // Check local storage for theme preference
     const currentTheme = localStorage.getItem('theme') || 'dark';
-    if (currentTheme === 'light') {
-        document.body.classList.remove('dark-theme');
-        document.body.classList.add('light-theme');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-        document.body.classList.add('dark-theme');
-        document.body.classList.remove('light-theme');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
-
-    themeToggleBtn.addEventListener('click', () => {
-        if (document.body.classList.contains('dark-theme')) {
-            // Switch to light theme
-            document.body.classList.replace('dark-theme', 'light-theme');
+    if (themeToggleBtn && themeIcon) {
+        if (currentTheme === 'light') {
+            document.body.classList.remove('dark-theme');
+            document.body.classList.add('light-theme');
             themeIcon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'light');
         } else {
-            // Switch to dark theme
-            document.body.classList.replace('light-theme', 'dark-theme');
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
             themeIcon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'dark');
         }
-    });
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.body.classList.contains('dark-theme')) {
+                document.body.classList.replace('dark-theme', 'light-theme');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.replace('light-theme', 'dark-theme');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
 
     // ==========================================
     // 2. SCROLL PROGRESS & HEADER SCROLL EFFECT
@@ -205,14 +481,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (accessKeyInput === 'YOUR_ACCESS_KEY_HERE') {
                 formStatus.style.display = 'block';
                 formStatus.className = 'form-status error';
-                formStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Mohon ganti 'YOUR_ACCESS_KEY_HERE' dengan Access Key Web3Forms Anda di file index.html terlebih dahulu.`;
+                formStatus.innerHTML = currentLang === 'en'
+                    ? `<i class="fas fa-exclamation-circle"></i> Please replace 'YOUR_ACCESS_KEY_HERE' with your Web3Forms Access Key in index.html first.`
+                    : `<i class="fas fa-exclamation-circle"></i> Mohon ganti 'YOUR_ACCESS_KEY_HERE' dengan Access Key Web3Forms Anda di file index.html terlebih dahulu.`;
                 return;
             }
 
             // Form Status: Loading state
             formStatus.style.display = 'block';
             formStatus.className = 'form-status';
-            formStatus.textContent = 'Mengirim pesan...';
+            formStatus.textContent = currentLang === 'en' ? 'Sending message...' : 'Mengirim pesan...';
             
             const formData = new FormData(contactForm);
             
@@ -225,20 +503,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.status == 200) {
                     // Success
                     formStatus.className = 'form-status success';
-                    formStatus.innerHTML = `<i class="fas fa-check-circle"></i> Terima kasih ${nameInput}, pesan Anda berhasil dikirim! Saya akan segera menghubungi Anda.`;
+                    formStatus.innerHTML = currentLang === 'en'
+                        ? `<i class="fas fa-check-circle"></i> Thank you ${nameInput}, your message was sent successfully! I will contact you soon.`
+                        : `<i class="fas fa-check-circle"></i> Terima kasih ${nameInput}, pesan Anda berhasil dikirim! Saya akan segera menghubungi Anda.`;
                     contactForm.reset();
                 } else {
                     // API Error Response
                     console.log(response);
                     formStatus.className = 'form-status error';
-                    formStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Maaf, terjadi kesalahan: ${json.message}`;
+                    formStatus.innerHTML = currentLang === 'en'
+                        ? `<i class="fas fa-exclamation-circle"></i> Sorry, an error occurred: ${json.message}`
+                        : `<i class="fas fa-exclamation-circle"></i> Maaf, terjadi kesalahan: ${json.message}`;
                 }
             })
             .catch(error => {
                 // Connection/Network Error
                 console.log(error);
                 formStatus.className = 'form-status error';
-                formStatus.innerHTML = `<i class="fas fa-exclamation-circle"></i> Maaf, terjadi kesalahan jaringan saat mengirim pesan.`;
+                formStatus.innerHTML = currentLang === 'en'
+                    ? `<i class="fas fa-exclamation-circle"></i> Sorry, a network error occurred while sending the message.`
+                    : `<i class="fas fa-exclamation-circle"></i> Maaf, terjadi kesalahan jaringan saat mengirim pesan.`;
             })
             .then(() => {
                 // Sembunyikan status setelah 5 detik
