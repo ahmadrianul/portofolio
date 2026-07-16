@@ -286,7 +286,8 @@ img {
 }
 
 #theme-toggle,
-.lang-btn {
+.lang-btn,
+.print-btn {
     background: transparent;
     border: none;
     color: var(--text-primary);
@@ -302,7 +303,8 @@ img {
 }
 
 #theme-toggle:hover,
-.lang-btn:hover {
+.lang-btn:hover,
+.print-btn:hover {
     background-color: var(--border-color);
 }
 
@@ -1578,4 +1580,194 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+/* ==========================================
+   PRINT STYLESHEET FOR PDF EXPORT
+   ========================================== */
+@media print {
+    /* Set page margins */
+    @page {
+        size: A4;
+        margin: 1.5cm;
+    }
+
+    /* Reset global colors for print */
+    body {
+        background: #ffffff !important;
+        color: #1a1a1a !important;
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+        color: #0b0f17 !important;
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    h2.section-title {
+        font-size: 18pt !important;
+        margin-bottom: 0.5rem !important;
+        border-bottom: 2px solid #ccc !important;
+        padding-bottom: 0.3rem !important;
+    }
+
+    .section-title-line {
+        display: none !important;
+    }
+
+    /* Hide interactive elements and UI controls */
+    .main-header,
+    .nav-actions,
+    .timeline-filters,
+    .project-links,
+    .contact-form-panel,
+    .gallery-overlay,
+    #scroll-progress,
+    .modal,
+    #mobile-nav-panel,
+    #mobile-menu-btn,
+    .social-links,
+    .btn,
+    .close-modal,
+    .modal-nav {
+        display: none !important;
+    }
+
+    /* Adjust main sections */
+    .section-padding {
+        padding: 1.5rem 0 !important;
+    }
+
+    /* Hero section print layout */
+    .hero-section {
+        padding-top: 1rem !important;
+        min-height: auto !important;
+        background: none !important;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .hero-content {
+        text-align: left !important;
+    }
+
+    .hero-visual {
+        display: none !important; /* Hide the 3D-like visual card on print */
+    }
+
+    /* Glass panel reset */
+    .glass-panel {
+        background: none !important;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 1.2rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* About section layout */
+    .about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Skills section */
+    .skills-container {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .skill-tag {
+        background: #f0f0f0 !important;
+        color: #333 !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .software-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    .software-card {
+        border: 1px solid #ddd !important;
+        background: none !important;
+    }
+
+    .software-logo-icon {
+        background: #f0f0f0 !important;
+        color: #333 !important;
+    }
+
+    /* Timeline section */
+    .timeline-container::before {
+        left: 16px !important;
+        background-color: #ccc !important;
+    }
+
+    .timeline-item {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .timeline-badge {
+        left: -2rem !important;
+        background: #ffffff !important;
+        border-color: #333 !important;
+        color: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .timeline-content {
+        padding: 1.2rem !important;
+        margin-left: 1.5rem !important;
+    }
+
+    .timeline-body.has-media {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Hide gallery images in print, keep only the text descriptions */
+    .gallery-preview-container,
+    .timeline-gallery,
+    .gallery-thumbnail {
+        display: none !important;
+    }
+
+    /* Contact section */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-info-panel {
+        border: none !important;
+    }
+
+    .info-item {
+        margin-bottom: 0.8rem !important;
+    }
+
+    .info-icon {
+        color: #333 !important;
+    }
+
+    /* Footer */
+    .main-footer {
+        padding: 1rem 0 !important;
+        background: none !important;
+        border-top: 1px solid #ddd !important;
+    }
+
+    .copyright, .footer-note {
+        color: #666 !important;
+    }
 }

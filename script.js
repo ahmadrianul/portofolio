@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero-desc": "Lulusan Baru Geofisika Universitas Hasanuddin dengan fondasi akademik yang kuat dalam interpretasi data bawah permukaan, manajemen data spasial, dan analisis mitigasi resiko. Saat ini, secara aktif mencari peluang profesional di berbagai sektor, termasuk operasional teknis, pemetaan geospasial, industri energi, maupun manajemen risiko lingkungan, di mana dapat mengaplikasikan keahlian analisis dan eksekusi lapangan untuk mencapai tujuan strategis.",
             "hero-cta-contact": "Hubungi Saya",
             "hero-cta-projects": "Lihat Proyek",
+            "hero-cta-cv": "Unduh CV PDF",
             "visual-inversi": "Inversi",
             "visual-subsurface": "Model Bawah Permukaan",
             "visual-analisis": "Analisis",
@@ -149,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "hero-desc": "A Geophysics Graduate from Universitas Hasanuddin with a strong academic foundation in subsurface data interpretation, spatial data management, and risk mitigation analysis. Currently actively seeking professional opportunities in technical operations, geospatial mapping, the energy industry, or environmental risk management, where I can apply my analysis and field execution skills to achieve strategic goals.",
             "hero-cta-contact": "Contact Me",
             "hero-cta-projects": "View Projects",
+            "hero-cta-cv": "Download CV PDF",
             "visual-inversi": "Inversion",
             "visual-subsurface": "Subsurface Model",
             "visual-analisis": "Analysis",
@@ -324,6 +326,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const nextLang = currentLang === 'id' ? 'en' : 'id';
             setLanguage(nextLang);
         });
+    }
+
+    // ==========================================
+    // 1B. PDF EXPORT PRINT TRIGGER
+    // ==========================================
+    const printPdfBtn = document.getElementById('print-pdf-btn');
+    const heroPrintPdfBtn = document.getElementById('hero-print-pdf-btn');
+
+    const handlePrint = (e) => {
+        e.preventDefault();
+        window.print();
+    };
+
+    if (printPdfBtn) {
+        printPdfBtn.addEventListener('click', handlePrint);
+    }
+    if (heroPrintPdfBtn) {
+        heroPrintPdfBtn.addEventListener('click', handlePrint);
     }
 
     // ==========================================
