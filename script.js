@@ -141,8 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-label-message": "Pesan Anda",
             "form-submit": "Kirim Pesan",
             "footer-copyright": "&copy; 2026 Ahmad Rianul Qauliah. All rights reserved.",
-            "footer-note": "Dibuat khusus untuk portofolio geofisika. Dihosting dengan cinta di GitHub Pages.",
-            "hero-cta-pdf": "Unduh PDF <i class=\"fas fa-file-pdf\"></i>"
+            "footer-note": "Dibuat khusus untuk portofolio geofisika. Dihosting dengan cinta di GitHub Pages."
         },
         en: {
             "nav-home": "Home",
@@ -281,8 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-label-message": "Your Message",
             "form-submit": "Send Message",
             "footer-copyright": "&copy; 2026 Ahmad Rianul Qauliah. All rights reserved.",
-            "footer-note": "Specifically made for geophysics portfolio. Hosted with love on GitHub Pages.",
-            "hero-cta-pdf": "Download PDF <i class=\"fas fa-file-pdf\"></i>"
+            "footer-note": "Specifically made for geophysics portfolio. Hosted with love on GitHub Pages."
         }
     };
 
@@ -325,16 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-captions-en]').forEach(el => {
             el.setAttribute('data-captions', el.getAttribute(`data-captions-${lang}`));
         });
-
-        // Update PDF download link based on language
-        const pdfBtn = document.getElementById('pdf-download-btn');
-        if (pdfBtn) {
-            if (lang === 'en') {
-                pdfBtn.setAttribute('href', 'assets/pdf/Ahmad_Rianul_Qauliah_Portfolio_EN.pdf');
-            } else {
-                pdfBtn.setAttribute('href', 'assets/pdf/Ahmad_Rianul_Qauliah_Portfolio_ID.pdf');
-            }
-        }
 
         // Set the active language label
         langLabel.textContent = lang.toUpperCase();
