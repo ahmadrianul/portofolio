@@ -1580,3 +1580,245 @@ img {
     gap: 0.5rem;
 }
 
+/* ==========================================
+   PRINT STYLES FOR HIGH-QUALITY PDF
+   ========================================== */
+@media print {
+    /* Define A4 page dimensions and margins */
+    @page {
+        size: A4;
+        margin: 1.2cm 1cm;
+    }
+
+    /* Force background colors, borders, and shadows to render */
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-color: var(--bg-primary) !important;
+        color: var(--text-primary) !important;
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Hide web-only components and interactive UI */
+    #main-header,
+    #scroll-progress,
+    #mobile-nav-panel,
+    .nav-actions,
+    .timeline-filters,
+    .wave-bg,
+    .wave-svg,
+    .scroll-to-top,
+    .theme-toggle,
+    #theme-toggle,
+    #lang-toggle,
+    #mobile-menu-btn,
+    .gallery-overlay,
+    .project-links,
+    .contact-form-panel,
+    #contact-form,
+    #gallery-modal,
+    .hero-cta,
+    .btn.btn-outline,
+    .btn.btn-primary.btn-sm i.fa-external-link-alt {
+        display: none !important;
+    }
+
+    /* Reformat container dimensions */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+    }
+
+    .section-padding {
+        padding: 1.5rem 0 !important;
+    }
+
+    /* Prevent splitting elements across page breaks */
+    .timeline-item,
+    .skills-category,
+    .software-card,
+    .cert-card,
+    .about-info,
+    .about-character,
+    .highlight-item,
+    .publication-highlight,
+    .contact-info-panel {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+    }
+
+    /* Ensure grids and layouts map nicely */
+    .grid {
+        display: grid !important;
+        gap: 1.2rem !important;
+    }
+
+    /* Hero section print layout */
+    .hero-section {
+        padding-top: 1rem !important;
+        padding-bottom: 1.5rem !important;
+        min-height: auto !important;
+    }
+
+    .hero-container {
+        grid-template-columns: 1.4fr 0.8fr !important;
+        gap: 2rem !important;
+        align-items: center !important;
+    }
+
+    .hero-greeting {
+        font-size: 1.2rem !important;
+    }
+
+    .hero-name {
+        font-size: 2.2rem !important;
+        margin: 0.2rem 0 !important;
+    }
+
+    .hero-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+
+    .hero-desc {
+        font-size: 0.95rem !important;
+    }
+
+    .profile-photo {
+        max-width: 140px !important;
+        height: auto !important;
+        border-radius: 12px !important;
+        border: 3px solid var(--accent) !important;
+    }
+
+    /* Ensure visual cards display nicely in print */
+    .hero-visual {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+    }
+
+    .subsurface-card,
+    .seismic-card {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 200px !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0.8rem !important;
+    }
+
+    /* About Section print layout */
+    .about-grid {
+        grid-template-columns: 1.2fr 0.8fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Skills print layout */
+    .skills-container {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.2rem !important;
+    }
+
+    .skills-category:last-child {
+        grid-column: span 2 !important;
+    }
+
+    .software-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.8rem !important;
+    }
+
+    /* Experience/Timeline print layout */
+    .timeline-container {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+    }
+
+    .timeline-container::before {
+        left: 8px !important;
+    }
+
+    .timeline-badge {
+        left: -1.3rem !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.75rem !important;
+        top: 1rem !important;
+    }
+
+    .timeline-content {
+        padding: 1.2rem 1.5rem !important;
+        margin-left: 0.8rem !important;
+    }
+
+    .timeline-body.has-media {
+        grid-template-columns: 1.3fr 1fr !important;
+        gap: 1.2rem !important;
+    }
+
+    .gallery-thumbnail {
+        height: 140px !important;
+        border-radius: 6px !important;
+        overflow: hidden !important;
+    }
+
+    .gallery-thumbnail img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Certifications Grid */
+    .certifications-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .publication-highlight {
+        padding: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Contact print layout */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-info-panel {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .info-details {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1rem !important;
+        margin-top: 1rem !important;
+    }
+
+    .info-item {
+        margin-bottom: 0 !important;
+    }
+
+    /* Footers */
+    .main-footer {
+        padding: 1rem 0 0 0 !important;
+        border-top: 1px solid var(--border-color) !important;
+        margin-top: 2rem !important;
+    }
+
+    .footer-note {
+        display: none !important;
+    }
+}
+

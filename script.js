@@ -141,7 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-label-message": "Pesan Anda",
             "form-submit": "Kirim Pesan",
             "footer-copyright": "&copy; 2026 Ahmad Rianul Qauliah. All rights reserved.",
-            "footer-note": "Dibuat khusus untuk portofolio geofisika. Dihosting dengan cinta di GitHub Pages."
+            "footer-note": "Dibuat khusus untuk portofolio geofisika. Dihosting dengan cinta di GitHub Pages.",
+            "hero-cta-pdf": "Unduh PDF <i class=\"fas fa-file-pdf\"></i>"
         },
         en: {
             "nav-home": "Home",
@@ -280,15 +281,21 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-label-message": "Your Message",
             "form-submit": "Send Message",
             "footer-copyright": "&copy; 2026 Ahmad Rianul Qauliah. All rights reserved.",
-            "footer-note": "Specifically made for geophysics portfolio. Hosted with love on GitHub Pages."
+            "footer-note": "Specifically made for geophysics portfolio. Hosted with love on GitHub Pages.",
+            "hero-cta-pdf": "Download PDF <i class=\"fas fa-file-pdf\"></i>"
         }
     };
 
     const langToggleBtn = document.getElementById('lang-toggle');
     const langLabel = document.getElementById('lang-label');
     
+    // Check URL parameters for language and theme first (useful for automated PDF generation)
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLang = urlParams.get('lang');
+    const paramTheme = urlParams.get('theme');
+    
     // Check local storage for language preference, default is 'id' (Indonesian)
-    let currentLang = localStorage.getItem('portfolio-lang') || 'id';
+    let currentLang = paramLang || localStorage.getItem('portfolio-lang') || 'id';
     
     const setLanguage = (lang) => {
         document.querySelectorAll('[data-lang]').forEach(el => {
@@ -319,6 +326,16 @@ document.addEventListener('DOMContentLoaded', () => {
             el.setAttribute('data-captions', el.getAttribute(`data-captions-${lang}`));
         });
 
+        // Update PDF download link based on language
+        const pdfBtn = document.getElementById('pdf-download-btn');
+        if (pdfBtn) {
+            if (lang === 'en') {
+                pdfBtn.setAttribute('href', 'assets/pdf/Ahmad_Rianul_Qauliah_Portfolio_EN.pdf');
+            } else {
+                pdfBtn.setAttribute('href', 'assets/pdf/Ahmad_Rianul_Qauliah_Portfolio_ID.pdf');
+            }
+        }
+
         // Set the active language label
         langLabel.textContent = lang.toUpperCase();
         
@@ -346,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
     
     // Check local storage for theme preference
-    const currentTheme = localStorage.getItem('theme') || 'dark';
+    const currentTheme = paramTheme || localStorage.getItem('theme') || 'dark';
     if (themeToggleBtn && themeIcon) {
         if (currentTheme === 'light') {
             document.body.classList.remove('dark-theme');
