@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "about-character": "Karakter Kerja",
             "about-education": "Pendidikan",
             "about-edu-degree": "Sarjana Geofisika | GPA: 3,75",
-            "about-edu-scholarship": "<strong>Beasiswa:</strong> Penerima Beasiswa Prestasi Akademik dari Pemerintah Kabupaten Luwu Timur (2020–2024).",
+            "about-edu-scholarship": "<strong>Beasiswa:</strong> Penerima Beasiswa Prestasi Akademik dari Pemerintah Kabupaten Luwu Timur.",
             "about-edu-book": "<strong>Buku:</strong> Co-author Buku <span class=\"text-italic\">\"Prediksi Lintasan dan Laju Pusaran Siklon Tropis\"</span> ISBN: 9789795304852 (Unhas Press, 2023).",
             "about-lang": "Bahasa",
             "lang-name-id": "Bahasa Indonesia",
